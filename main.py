@@ -53,7 +53,8 @@ def blog():
     entry_id = request.args.get('id')
 
     if entry_id == None:
-        entries = Blogpost.query.all()    
+        entries = Blogpost.query.all()
+        entries.reverse()    
         return render_template('main.html', entries=entries, title='Build-A-Blog')
     else:
         entry = Blogpost.query.get(entry_id)
